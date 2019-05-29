@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
   }
   findUser(formValues) {
     this.userService
-      .getUser(formValues.user)
+      .getUser()
       .subscribe(data => {
         this.userData = data;
       });
