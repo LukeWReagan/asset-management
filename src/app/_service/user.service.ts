@@ -14,4 +14,8 @@ export class UserService {
       'http://localhost:51036/AssetServ.svc/emp/employees/' + user)
   }
   
+  getInfo(userID) {
+	return this.http.get('http://localhost:51036/AssetServ.svc/emp/employee/' + userID)
+  }
+  
 }
