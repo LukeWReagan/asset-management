@@ -1,3 +1,6 @@
+table {
+    white-space: nowrap;
+}
 th {
     text-align: center;
     margin: auto;

@@ -26,14 +26,14 @@
           <thead>
 	        <tr>
 		        <th style="min-width:40%">Name</th>
-		        <th>Number/ID</th>
-		        <th style="visibility:hidden"> <button>More Info</button> </th>
+		        <th colspan="2">Number/ID</th>
+            <!-- <th style="visibility:hidden"> <button>More Info</button> </th> -->
           </tr>
         </thead>
         <tbody>
 	        <tr *ngFor="let name of userData">
-		        <td>{{name.Name}}</td>
-		        <td>{{name.Phone}}</td>
+		        <td style="width:40%">{{name.Name}}</td>
+		        <td style="width:40%">{{name.Phone}}</td>
 		        <td><button [routerLink]="['/info']">More Info</button></td>
           </tr>
         </tbody>
