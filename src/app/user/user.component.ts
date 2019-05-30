@@ -22,12 +22,13 @@ export class UserComponent implements OnInit {
     this.userSearchForm = this.formBuilder.group({
       user: [""]
     });
-    this.findUser();
   }
-  
-  private findUser() {
-    this.userService.getUser().pipe(first()).subscribe(users => { 
-        this.users = users;
-    });
+  findUser(formValues) {
+    this.userService
+      .getUser(formValues.user)
+      .subscribe(data => {
+        this.userData = data;
+        console.log(this.userData);
+      });
   }
 }

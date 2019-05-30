@@ -8,8 +8,9 @@ import { User } from '../_models/user';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  getUser(){
-    return this.http.get<User[]>(
-      'assets/test.json')
+  
+  getUser(user){
+    return this.http.get(
+      'https://api.apixu.com/v1/current.json?key=030633e3372c470aad2184029192305&q=' + user)
   }
 }
