@@ -10,24 +10,24 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user: User[] = [];
+  users: User[] = [];
   public userSearchForm: FormGroup;
   public userData: any;
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService) { }
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
     this.userSearchForm = this.formBuilder.group({
       user: [""]
     });
+    this.findUser();
   }
-  findUser(formValues) {
-    this.userService
-      .getUser()
-      .subscribe(data => {
-        this.userData = data;
-      });
+  
+  private findUser() {
+    this.userService.getUser().pipe(first()).subscribe(users => { 
+        this.users = users;
+    });
   }
-
 }
