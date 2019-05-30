@@ -8,11 +8,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './_service/user.service';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
