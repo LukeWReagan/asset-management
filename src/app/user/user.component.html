@@ -20,19 +20,23 @@
       </form>
     </div>
     <div class="col-md-6">
-      <h3 class="text-center my-4">User Details:</h3>
+      <h3 class="text-center my-4">Users:</h3>
       <div class="text-center">
-	      <table style="min-width:35em">
+        <table class="table table-striped table-bordered" style="min-width:35em;margin:auto">
+          <thead>
 	        <tr>
-		        <th>Name</th>
+		        <th style="min-width:40%">Name</th>
 		        <th>Number/ID</th>
-		        <th style="visibility:hidden">More Info</th>
-	        </tr>
+		        <th style="visibility:hidden"> <button>More Info</button> </th>
+          </tr>
+        </thead>
+        <tbody>
 	        <tr *ngFor="let name of userData">
 		        <td>{{name.Name}}</td>
 		        <td>{{name.Phone}}</td>
 		        <td><button [routerLink]="['/info']">More Info</button></td>
-	        </tr>
+          </tr>
+        </tbody>
 	      </table>
       </div>
     </div>
