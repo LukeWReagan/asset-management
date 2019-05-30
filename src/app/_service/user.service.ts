@@ -11,6 +11,6 @@ export class UserService {
   
   getUser(user){
     return this.http.get(
-      'https://api.apixu.com/v1/current.json?key=030633e3372c470aad2184029192305&q=' + user)
+      'http://localhost:51036/AssetServ.svc/emp/employees/' + user)
   }
 }

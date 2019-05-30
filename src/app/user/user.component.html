@@ -22,7 +22,8 @@
     <div class="col-md-6">
       <h3 class="text-center my-4">User Details:</h3>
       <p class="text-center">
-        The User Returned: {{this.userData?.Name}}
+	  The User Returned:
+	  <li *ngFor="let name of userData"> {{name.Name}}</li>
       </p>
     </div>
   </div>
