@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { LoanSubmit } from '../_models/LoanSubmit'
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,9 @@ export class UserService {
     this.storedId = id;
     localStorage.setItem('storedId', id);
     return this.storedId;
+  }
+  createloan(loan: LoanSubmit){
+    return this.http.post('', loan)
   }
   
 }

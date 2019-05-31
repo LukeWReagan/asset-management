@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './_service/user.service';
+import {  AlertService } from './_service/alert.service';
 import { InfoComponent } from './info/info.component';
 import { LoanFormComponent } from './loan-form/loan-form.component';
 
@@ -25,7 +26,7 @@ import { LoanFormComponent } from './loan-form/loan-form.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [UserService],
+  providers: [UserService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
