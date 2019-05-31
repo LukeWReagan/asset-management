@@ -8,17 +8,25 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  myName:any;
+  empName:any;
+  empPhone:any;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    if (this.userService.storedId === undefined) {
-      this.userService.storedId = localStorage.getItem('storedId');
+    // Check if the stored name/phone is undefined, and if yes then load them from localStorge
+    if (this.userService.storedName === undefined) {
+      this.userService.storedName = localStorage.getItem('storedId');
       console.log('userService.storedId undefined');
     } else {
-      console.log('storedId not undefined:' + this.userService.storedId);
+      console.log('storedId not undefined:' + this.userService.storedName);
     }
-    this.myName = this.userService.storedId;
+    if (this.userService.storedPhone === undefined) {
+      this.userService.storedPhone = localStorage.getItem('storedPhone');
+      //console.log('userService.storedId undefined');
+    }
+    this.empName = this.userService.storedName;
+    this.empPhone = this.userService.storedPhone;
+
   }
 }

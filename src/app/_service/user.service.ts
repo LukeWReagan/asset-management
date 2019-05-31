@@ -6,7 +6,8 @@ import { LoanSubmit } from '../_models/LoanSubmit'
   providedIn: 'root',
 })
 export class UserService {
-  storedId: any
+  storedName: any;
+  storedPhone: any;
 
   constructor(private http: HttpClient) { }
   
@@ -19,9 +20,14 @@ export class UserService {
 	  return this.http.get('http://localhost:51036/AssetServ.svc/emp/employee/' + userID)
   }
   setId(id) {
-    this.storedId = id;
+    this.storedName = id;
     localStorage.setItem('storedId', id);
-    return this.storedId;
+    return this.storedName;
+  }
+  setPhone(ph) {
+    this.storedPhone = ph;
+    localStorage.setItem('storedPhone', ph);
+    return this.storedPhone;
   }
   createloan(loan: LoanSubmit){
     return this.http.post('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/submit', '{"form":' + loan + '}')
