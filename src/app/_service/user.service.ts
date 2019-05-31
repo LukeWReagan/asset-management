@@ -24,7 +24,7 @@ export class UserService {
     return this.storedId;
   }
   createloan(loan: LoanSubmit){
-    return this.http.post('', loan)
+    return this.http.post('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/submit', '{"form":' + loan + '}')
   }
   
 }
