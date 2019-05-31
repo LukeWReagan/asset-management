@@ -28,7 +28,15 @@ export class UserComponent implements OnInit {
       .getUser(formValues.user)
       .subscribe(data => {
         this.userData = data;
-        console.log(this.userData);
+        //console.log(this.userData);
       });
+  }
+  dataToService(id) {
+    //let x = this.userService.getID(id);
+    //x.subscribe(data => {
+    //  this.userData = data;
+   // })
+   this.userService.setId(id);
+    //this.userService.storedId = id;
   }
 }

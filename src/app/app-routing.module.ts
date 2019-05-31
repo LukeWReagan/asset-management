@@ -5,7 +5,7 @@ import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
   { path: '', component: UserComponent },
-  { path: 'info', component: InfoComponent },
+  { path: 'info', component: InfoComponent }//, data : {test_var : 'some_value'} }
 ];
 
 @NgModule({
