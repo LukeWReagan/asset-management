@@ -1,3 +1,133 @@
-<p>
-  loan-form works!
-</p>
+<div class="container" style="padding-top:2em">
+  <div class="row">
+    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+      <h2>Loan Form</h2>
+        <div class="form-group">
+          <label for="ClientName">Client Name</label>
+          <input type="text" formControlName="ClientName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ClientName.errors }" />
+          <div *ngIf="submitted && f.ClientName.errors" class="invalid-feedback">
+            <div *ngIf="f.ClientName.errors.required">Client Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ProjectName">Project Name</label>
+          <input type="text" formControlName="ProjectName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ProjectName.errors }" />
+          <div *ngIf="submitted && f.ProjectName.errors" class="invalid-feedback">
+            <div *ngIf="f.ProjectName.errors.required">Project Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Type">Type</label>
+          <input type="text" formControlName="Type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Type.errors }" />
+          <div *ngIf="submitted && f.Type.errors" class="invalid-feedback">
+            <div *ngIf="f.Type.errors.required">Type is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="LoanDate">Loan Date</label>
+          <input type="text" formControlName="LoanDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LoanDate.errors }" />
+          <div *ngIf="submitted && f.LoanDate.errors" class="invalid-feedback">
+            <div *ngIf="f.LoanDate.errors.required">Loan date is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="LoanCondition">Loan Condition</label>
+          <input type="text" formControlName="LoanCondition" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LoanCondition.errors }" />
+          <div *ngIf="submitted && f.LoanCondition.errors" class="invalid-feedback">
+            <div *ngIf="f.LoanCondition.errors.required">Loan condition is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="LoanSupervisor">Loan Supervisor</label>
+          <input type="text" formControlName="LoanSupervisor" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LoanSupervisor.errors }" />
+          <div *ngIf="submitted && f.LoanSupervisor.errors" class="invalid-feedback">
+            <div *ngIf="f.LoanSupervisor.errors.required">Loan supervisor is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Brand">Brand</label>
+          <input type="text" formControlName="Brand" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Brand.errors }" />
+          <div *ngIf="submitted && f.Brand.errors" class="invalid-feedback">
+            <div *ngIf="f.Brand.errors.required">Brand is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ModelNumber">Model Number</label>
+          <input type="text" formControlName="ModelNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ModelNumber.errors }" />
+          <div *ngIf="submitted && f.ModelNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.ModelNumber.errors.required">Model Number is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="SerialNumber">Serial Number</label>
+          <input type="text" formControlName="SerialNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SerialNumber.errors }" />
+          <div *ngIf="submitted && f.SerialNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.SerialNumber.errors.required">Serial Number is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="AssetNumber">Asset Number</label>
+          <input type="text" formControlName="AssetNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.AssetNumber.errors }" />
+          <div *ngIf="submitted && f.AssetNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.AssetNumber.errors.required">Asset Number is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Note">Note</label>
+          <input type="text" formControlName="Note" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Note.errors }" />
+          <div *ngIf="submitted && f.Note.errors" class="invalid-feedback">
+            <div *ngIf="f.Note.errors.required">Note is required</div>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-6">
+      
+          <h1 style="visibility:hidden">lol</h1>
+          
+
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
+        <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+          <div *ngIf="f.Name.errors.required">Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="WorkAddress">Work Address</label>
+        <input type="text" formControlName="WorkAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.WorkAddress.errors }" />
+        <div *ngIf="submitted && f.WorkAddress.errors" class="invalid-feedback">
+          <div *ngIf="f.WorkAddress.errors.required">Work Address is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="HomeAddress">Home Address</label>
+        <input type="text" formControlName="HomeAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.HomeAddress.errors }" />
+        <div *ngIf="submitted && f.HomeAddress.errors" class="invalid-feedback">
+          <div *ngIf="f.HomeAddress.errors.required">Home Address is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Phone">Phone Number</label>
+        <input type="text" formControlName="Phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Phone.errors }" />
+        <div *ngIf="submitted && f.Phone.errors" class="invalid-feedback">
+          <div *ngIf="f.Phone.errors.required">Phone number is required</div>
+          <div *ngIf="f.Phone.errors.minlength">Phone number must be at least 10 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Email">Email Address</label>
+        <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+        <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+          <div *ngIf="f.Email.errors.required">Email Address is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Submit Loan Form</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/']" class="btn btn-link">Cancel</a>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

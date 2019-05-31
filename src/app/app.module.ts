@@ -11,13 +11,15 @@ import { UserService } from './_service/user.service';
 import {  AlertService } from './_service/alert.service';
 import { InfoComponent } from './info/info.component';
 import { LoanFormComponent } from './loan-form/loan-form.component';
+import { AlertComponent } from './_directive/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     InfoComponent,
-    LoanFormComponent
+    LoanFormComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
