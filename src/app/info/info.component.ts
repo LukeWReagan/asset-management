@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../_service/user.service';
-//import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-info',
@@ -20,7 +19,5 @@ export class InfoComponent implements OnInit {
       console.log('storedId not undefined:' + this.userService.storedId);
     }
     this.myName = this.userService.storedId;
-    //console.log(this.myName);
   }
-
 }
