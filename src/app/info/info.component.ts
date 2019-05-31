@@ -15,6 +15,7 @@ export class InfoComponent implements OnInit {
   ngOnInit() {
     if (this.userService.storedId === undefined) {
       this.userService.storedId = localStorage.getItem('storedId');
+      console.log('userService.storedId undefined');
     } else {
       console.log('storedId not undefined:' + this.userService.storedId);
     }
