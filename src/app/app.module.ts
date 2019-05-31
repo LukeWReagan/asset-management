@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './_service/user.service';
 import { InfoComponent } from './info/info.component';
+import { LoanFormComponent } from './loan-form/loan-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    InfoComponent
+    InfoComponent,
+    LoanFormComponent
   ],
   imports: [
     BrowserModule,

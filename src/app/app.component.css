@@ -1,0 +1,15 @@
+#nav{
+    height: 100px;
+    width: 100%;
+    background-color: black;
+    display: inline-block;
+}
+a{
+    margin-left: 50px;
+    margin-top:50px;
+    font-size: 25px;
+    color: white;
+}
+.margin{
+    margin-top: 35px;
+}
