@@ -33,7 +33,7 @@
 	        <tr *ngFor="let name of userData">
 		        <td style="width:40%">{{name.Name}}</td>
 		        <td style="width:40%">{{name.Phone}}</td>
-            <td><button [routerLink]="['/info']" (click)="dataToService(name.Name)">More Info</button></td>
+            <td><button [routerLink]="['/info']" (click)="dataToService(name.Name, name.Phone)">More Info</button></td>
           </tr>
         </tbody>
 	      </table>

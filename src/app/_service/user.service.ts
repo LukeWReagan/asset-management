@@ -13,11 +13,11 @@ export class UserService {
   
   getUser(user){
     return this.http.get(
-      'http://localhost:51036/AssetServ.svc/emp/employees/' + user)
+      'http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employees/' + user)
   }
   
   getInfo(userID) {
-	  return this.http.get('http://localhost:51036/AssetServ.svc/emp/employee/' + userID)
+	  return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employee/' + userID)
   }
   setId(id) {
     this.storedName = id;

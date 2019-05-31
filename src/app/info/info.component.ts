@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../_service/user.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Employee } from '../_models/Employee';
 
 @Component({
   selector: 'app-info',
@@ -10,6 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class InfoComponent implements OnInit {
   empName:any;
   empPhone:any;
+  employee:any;
 
   constructor(private userService: UserService) { }
 
@@ -28,5 +30,8 @@ export class InfoComponent implements OnInit {
     this.empName = this.userService.storedName;
     this.empPhone = this.userService.storedPhone;
 
+    this.employee = this.userService.getInfo(this.empPhone);
+    console.log('here is employee info return:');
+    console.log(this.employee);
   }
 }

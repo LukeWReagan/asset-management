@@ -1,11 +1,16 @@
-<div>
-  <table>
+<div class="container" style="padding:3em">
+  <table class="table table-striped table-bordered">
     <thead>
-      Information for Employee: {{this.empName}}
+      <tr>
+        <th colspan="5">
+         <b>Information for Employee: <span style="text-align:center"><i><h3>{{this.empName}}</h3></i></span></b>
+        </th>
+    </tr>
     </thead>
     <tbody>
       <tr>
-
+        <th>Phone:</th>
+        <td>{{this.empPhone}}</td>
       </tr>
     </tbody>
   </table>
