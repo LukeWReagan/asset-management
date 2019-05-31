@@ -1,8 +1,8 @@
 <div class="container" style="padding-top:2em">
+  <h2>Loan Form</h2>
   <div class="row">
     <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
     <div class="col-md-6">
-      <h2>Loan Form</h2>
         <div class="form-group">
           <label for="ClientName">Client Name</label>
           <input type="text" formControlName="ClientName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ClientName.errors }" />
@@ -83,7 +83,7 @@
       </div>
     <div class="col-md-6">
       
-          <h1 style="visibility:hidden">lol</h1>
+          <!-- <h1 style="visibility:hidden">lol</h1> -->
           
 
       <div class="form-group">
