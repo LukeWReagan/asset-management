@@ -36,7 +36,8 @@ export class LoanFormComponent implements OnInit {
       SerialNumber: ['', []],
       AssetNumber: ['', []],
       Note: ['', []],
-      Name: ['', []],
+      FirstName: ['', []],
+      LastName: ['', []],
       WorkAddress: ['', []],
       HomeAddress: ['', []],
       Email: ['', []]

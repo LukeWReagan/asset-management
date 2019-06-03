@@ -87,10 +87,17 @@
           
 
       <div class="form-group">
-        <label for="Name">Name</label>
-        <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
-        <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
-          <div *ngIf="f.Name.errors.required">Name is required</div>
+        <label for="FirstName">First Name</label>
+        <input type="text" formControlName="FirstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" />
+        <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+          <div *ngIf="f.FirstName.errors.required">First Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input type="text" formControlName="LastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" />
+        <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+          <div *ngIf="f.LastName.errors.required">Last Name is required</div>
         </div>
       </div>
       <div class="form-group">
