@@ -25,7 +25,7 @@ export class LoanFormComponent implements OnInit {
   ngOnInit() {
     this.loanForm = this.formBuilder.group({
       ClientName: ['', []],
-      Phone: ['', [Validators.required, Validators.minLength(10)]],
+      Phone: ['', []],
       ProjectName: ['', []],
       Type: ['', []],
       LoanDate: ['', []],
