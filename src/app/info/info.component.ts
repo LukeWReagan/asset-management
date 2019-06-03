@@ -11,7 +11,7 @@ import { Employee } from '../_models/Employee';
 export class InfoComponent implements OnInit {
   empName:any;
   empPhone:any;
-
+  loanCount: any;
   employee:any;
 
   constructor(private userService: UserService) { }
@@ -30,6 +30,8 @@ export class InfoComponent implements OnInit {
     }
     this.empName = this.userService.storedName;
     this.empPhone = this.userService.storedPhone;
+    this.loanCount = this.employee.length;
+
     this.userService.getInfo(this.empPhone).subscribe(info => {
         this.employee = info;
         console.log(info);
