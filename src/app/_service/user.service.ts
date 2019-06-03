@@ -8,6 +8,7 @@ import { LoanSubmit } from '../_models/LoanSubmit'
 export class UserService {
   storedName: any;
   storedPhone: any;
+  storedId: any;
 
   constructor(private http: HttpClient) { }
   
@@ -28,6 +29,11 @@ export class UserService {
     this.storedPhone = ph;
     localStorage.setItem('storedPhone', ph);
     return this.storedPhone;
+  }
+  setId(id) {
+    this.storedId = id;
+    localStorage.setItem('storedId', id);
+    return this.storedId;
   }
   createloan(loan: LoanSubmit){
     //console.log('here is what we get:');

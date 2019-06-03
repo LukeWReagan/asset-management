@@ -26,14 +26,14 @@
           <thead>
 	        <tr>
 		        <th style="min-width:40%">Name</th>
-		        <th colspan="2">Number/ID</th>
+		        <th colspan="2">Employee ID</th>
           </tr>
         </thead>
         <tbody>
 	        <tr *ngFor="let name of userData">
 		        <td style="width:40%">{{name.FirstName + " " + name.LastName}}</td>
-		        <td style="width:40%">{{name.Phone}}</td>
-            <td><button [routerLink]="['/info']" (click)="dataToService(name.FirstName + ' ' + name.LastName, name.Phone)">More Info</button></td>
+		        <td style="width:40%">{{name.EmployeeID}}</td>
+            <td><button [routerLink]="['/info']" (click)="dataToService(name.FirstName + ' ' + name.LastName, name.EmployeeID)">More Info</button></td>
           </tr>
         </tbody>
 	      </table>
