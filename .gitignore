@@ -30,6 +30,7 @@ speed-measure-plugin.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.vs/*
 
 # misc
 /.sass-cache
@@ -48,3 +49,5 @@ Thumbs.db
 # chris
 ng
 package-lock.json
+
+#
