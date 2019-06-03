@@ -6,9 +6,11 @@
         private string _email;
 */
 export class Employee {
-    Name: string;
+    FirstName: string;
+    LastName: string;
     WorkAddress: string;
     HomeAddress: string;
     Phone: bigint;
     Email: string;
+    EmployeeID: bigint;
 }
