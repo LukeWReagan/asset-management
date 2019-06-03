@@ -19,10 +19,10 @@ export class InfoComponent implements OnInit {
   ngOnInit() {
     // Check if the stored name/phone is undefined, and if yes then load them from localStorge
     if (this.userService.storedName === undefined) {
-      this.userService.storedName = localStorage.getItem('storedId');
-      console.log('userService.storedId undefined');
+      this.userService.storedName = localStorage.getItem('storedName');
+      console.log('userService.storeName undefined');
     } else {
-      console.log('storedId not undefined:' + this.userService.storedName);
+      console.log('storedName not undefined:' + this.userService.storedName);
     }
     if (this.userService.storedPhone === undefined) {
       this.userService.storedPhone = localStorage.getItem('storedPhone');
@@ -36,6 +36,6 @@ export class InfoComponent implements OnInit {
       });
   }
   dataToService(id) {
-    this.userService.setId(id);
+    this.userService.setName(id);
    }
 }

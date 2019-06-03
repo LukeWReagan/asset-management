@@ -19,9 +19,9 @@ export class UserService {
   getInfo(userID) {
 	  return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employee/' + userID)
   }
-  setId(id) {
-    this.storedName = id;
-    localStorage.setItem('storedId', id);
+  setName(name) {
+    this.storedName = name;
+    localStorage.setItem('storedName', name);
     return this.storedName;
   }
   setPhone(ph) {

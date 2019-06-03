@@ -30,7 +30,7 @@ export class UserComponent implements OnInit {
       });
   }
   dataToService(name, phone) {
-   this.userService.setId(name);
+   this.userService.setName(name);
    this.userService.setPhone(phone);
   }
 }
