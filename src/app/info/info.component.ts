@@ -35,4 +35,7 @@ export class InfoComponent implements OnInit {
         console.log(info);
       });
   }
+  dataToService(id) {
+    this.userService.setId(id);
+   }
 }

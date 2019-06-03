@@ -12,6 +12,7 @@ import {  AlertService } from './_service/alert.service';
 import { InfoComponent } from './info/info.component';
 import { LoanFormComponent } from './loan-form/loan-form.component';
 import { AlertComponent } from './_directive/alert.component';
+import { LoanInfoComponent } from './loan-info/loan-info.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AlertComponent } from './_directive/alert.component';
     UserComponent,
     InfoComponent,
     LoanFormComponent,
-    AlertComponent
+    AlertComponent,
+    LoanInfoComponent
   ],
   imports: [
     BrowserModule,
