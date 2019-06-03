@@ -18,12 +18,6 @@ export class LoanInfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.userService.storedName === undefined) {
-    this.userService.storedName = localStorage.getItem('storedId');
-    console.log('userService.storedId undefined');
-  } else {
-    console.log('storedId not undefined:' + this.userService.storedName);
-  }
   this.empId = this.userService.storedName;
   this.userService.getInfo(this.empId).subscribe(info => {
     this.employee = info;
