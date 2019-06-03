@@ -31,7 +31,8 @@ export class LoanSubmit {
     AssetNumber: string;
     Note: string;
 
-    Name: string;
+    FirstName: string;
+    LastName: string;
     WorkAddress: string;
     HomeAddress: string;
     Phone: bigint;
