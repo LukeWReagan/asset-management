@@ -1,21 +1,22 @@
-#nav{
-    height: 100px;
-    width: 100%;
-    background-color: black;
-    display: flex;
-    
+#nav {
+  height: 140px;
+  width: 100%;
+  background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
+  display: flex;
 }
-a{
-    margin-left: 50px;
-    margin-top:50px;
-    font-size: 25px;
-    color: white;
+a {
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 25px;
+  color: white;
+  justify-content: space-between;
 }
 #navlink{
   align-items:center;
 }
 .navmargin{
     margin-top: 35px;
+    
 }
 #spaceneedle{
   height: 40px;
