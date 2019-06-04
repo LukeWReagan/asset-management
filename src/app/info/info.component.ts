@@ -46,5 +46,9 @@ export class InfoComponent implements OnInit {
   }
   dataToService(id) {
     this.userService.setName(id);
-   }
+  }
+  autoFillUser() {
+    localStorage.setItem('empAF', JSON.stringify(this.employee));
+    this.userService.changeMessage(JSON.stringify({'autofill':true, 'info':this.employee}))
+  } 
 }

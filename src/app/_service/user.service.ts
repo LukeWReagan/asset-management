@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoanSubmit } from '../_models/LoanSubmit'
+import { BehaviorSubject } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +11,9 @@ export class UserService {
   storedName: any;
   storedPhone: any;
   storedId: any;
+  
+  private messageSource = new BehaviorSubject('n/a');
+  currentMessage = this.messageSource.asObservable();
 
   constructor(private http: HttpClient) { }
   
@@ -49,4 +54,7 @@ export class UserService {
     return this.http.post('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/submit', '{"form":' + JSON.stringify(loan) + '}', options);
   }
   
+  changeMessage(message: string) {
+    this.messageSource.next(message)
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_service/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { first, distinctUntilChanged, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AlertService } from '../_service/alert.service';
 
@@ -15,12 +15,13 @@ export class LoanFormComponent implements OnInit {
   submitted = false;
   public loanForm: FormGroup;
   public loanData: any;
+  autoFill: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private alertService: AlertService,
-    private userService: UserService) { }
+    private userService: UserService ) { }
 
   ngOnInit() {
     this.loanForm = this.formBuilder.group({
@@ -41,10 +42,41 @@ export class LoanFormComponent implements OnInit {
       WorkAddress: ['', []],
       HomeAddress: ['', []],
       Email: ['', []]
+    });
+    this.userService.currentMessage.pipe(filter((s:string) => s!="n/a")).subscribe(message => {
+      console.log('sub called, message: ' + message);
+      if (message == 'n/a') return;
 
+      console.log('made it thru');
+      this.autoFill = JSON.parse(message);
+      //console.log('autofill next line:');
+      //console.log(this.autoFill);
+      if (this.autoFill.autofill) {
+        console.log('autofilling...');
+        let info = this.autoFill.info;
+        if (info.FirstName != null)
+          this.loanForm.get('FirstName').setValue(info.FirstName);
+        console.log('fn ' + info.FirstName);
+        if (info.LastName != null)
+          this.loanForm.get('LastName').setValue(info.LastName);
+        console.log('ln ' + info.LastName);
+        if (info.Phone != null)
+          this.loanForm.get('Phone').setValue(info.Phone);
+        console.log('ph ' + info.Phone);
+        if (info.Email != null)
+          this.loanForm.get('Email').setValue(info.Email);
+        console.log('email ' + info.Email);
+        if (info.WorkAddress != null)
+          this.loanForm.get('WorkAddress').setValue(info.WorkAddress);
+        console.log('workad');
+        if (info.HomeAddress != null)
+          this.loanForm.get('HomeAddress').setValue(info.HomeAddress);
+        console.log('homead');
+        console.log('done');
 
-
-  });
+      //  this.userService.changeMessage('n/a');
+      }
+    });
   }
   get f() { return this.loanForm.controls; }
   onSubmit() {
