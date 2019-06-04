@@ -18,7 +18,7 @@ export class LoanInfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  this.empId = this.userService.storedName;
+  this.empId = this.userService.storedId;
   this.userService.getInfo(this.empId).subscribe(info => {
     this.employee = info;
     console.log(info);

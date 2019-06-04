@@ -36,17 +36,7 @@ export class UserService {
     return this.storedId;
   }
   createloan(loan: LoanSubmit){
-    //console.log('here is what we get:');
-    //console.log(JSON.stringify(loan));
-    //let myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    //myHeaders = myHeaders.set('Content-Type', 'application/json');
-    //const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    // let headers = new HttpHeaders({'Content-Type': 'application/text'});
-
     let options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    //console.log('options next line');
-    //console.log(options);
     return this.http.post('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/submit', '{"form":' + JSON.stringify(loan) + '}', options);
   }
-  
 }
