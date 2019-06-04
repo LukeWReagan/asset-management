@@ -48,5 +48,7 @@ export class UserService {
   changeMessage(message: string) {
     this.messageSource.next(message)
   }
-
+  getLoans(id) {
+    return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/emp/' + id);
+  }
 }

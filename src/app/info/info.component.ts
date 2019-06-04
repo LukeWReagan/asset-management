@@ -14,6 +14,8 @@ export class InfoComponent implements OnInit {
   loanCount: any;
   employee:any;
   empId:any;
+  empWA:any;
+  empEmail:any;
 
   constructor(private userService: UserService) { }
 
@@ -36,6 +38,8 @@ export class InfoComponent implements OnInit {
     this.empName = this.userService.storedName;
     this.empPhone = this.userService.storedPhone;
     this.empId = this.userService.storedId;
+    this.empWA = "n/a";
+    this.empEmail = "n/a";
     
 
     this.userService.getInfo(this.empId).subscribe(info => {
@@ -44,8 +48,9 @@ export class InfoComponent implements OnInit {
         this.loanCount = this.employee.length;
       });
   }
-  dataToService(id) {
-    this.userService.setName(id);
+  dataToService(name, id) {
+    this.userService.setName(name);
+    this.userService.setId(id);
   }
   autoFillUser() {
     localStorage.setItem('empAF', JSON.stringify(this.employee));

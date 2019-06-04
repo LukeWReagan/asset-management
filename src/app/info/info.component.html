@@ -14,11 +14,11 @@
       </tr>
       <tr>
         <th>Email:</th>
-        <td>{{this.employee.Email}}</td>
+        <td>{{this.empEmail}}</td>
       </tr>
       <tr>
         <th>Work Address:</th>
-        <td>{{this.employee.WorkAddress}}</td>
+        <td>{{this.empWA}}</td>
       </tr>
     </tbody>
   </table>
@@ -28,7 +28,7 @@
   <section id="loan-section">
     <p>Loan Amount: {{this.loanCount}}</p>
     <br>
-    <button type="button">Check Loans</button>
+    <button [routerLink]="['/loan-info']" (click)="dataToService(this.empName, this.empId)" type="button">Check Loans</button>
   </section>
 </div>
 
