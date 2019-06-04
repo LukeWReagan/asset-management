@@ -16,9 +16,17 @@
         <th>Email:</th>
         <td>{{this.empEmail}}</td>
       </tr>
-      <tr>
+     <!--<tr>
         <th>Work&nbsp;Address:</th>
         <td>{{this.empWA}}</td>
+      </tr>-->
+      <tr *ngIf="this.empWA != 'n/a'">
+        <th>Work&nbsp;Address:</th>
+        <td>{{this.empWA}}</td>
+      </tr>
+      <tr *ngIf="this.empHA != 'n/a'">
+          <th>Home&nbsp;Address:</th>
+          <td>{{this.empHA}}</td>
       </tr>
     </tbody>
   </table>

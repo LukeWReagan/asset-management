@@ -17,6 +17,7 @@ export class InfoComponent implements OnInit {
   empWA:any;
   empEmail:any;
   numOpenLoans:number;
+  empHA:any;
 
   constructor(private userService: UserService) { }
 
@@ -40,6 +41,7 @@ export class InfoComponent implements OnInit {
     //this.empPhone = this.userService.storedPhone;
     this.empId = this.userService.storedId;
     this.empWA = "n/a";
+    this.empHA = "n/a";
     this.empEmail = "n/a";
     this.empPhone = "n/a";
     
@@ -48,7 +50,11 @@ export class InfoComponent implements OnInit {
         this.employee = info;
         console.log(info);
         this.empPhone = (<Employee>info).Phone;
+        this.empWA = (<Employee>info).WorkAddress;
+        this.empHA = (<Employee>info).HomeAddress;
         if (this.empPhone == "" || this.empPhone === null) this.empPhone = "n/a";
+        if (this.empWA == "" || this.empWA === null) this.empWA = "n/a";
+        if (this.empHA == "" || this.empHA === null) this.empHA = "n/a";
         this.loanCount = this.employee.length;
       });
 
