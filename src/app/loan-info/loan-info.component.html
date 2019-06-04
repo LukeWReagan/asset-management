@@ -1,3 +1,39 @@
-<p>
-  {{userService.storedName}}
-</p>
+<div class="container" style="padding:3em">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th colspan="5">
+            <b>Information for Employee: <span style="float:right;text-align:right;font-size:x-small">ID: {{this.empId}}</span><span style="text-align:center"><i><h3>{{this.empName}}</h3></i></span></b>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Phone:</th>
+          <td>{{this.empPhone}}</td>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <td>{{this.empEmail}}</td>
+        </tr>
+        <tr *ngIf="this.empWA != 'n/a'">
+          <th>Work&nbsp;Address:</th>
+          <td>{{this.empWA}}</td>
+        </tr>
+        <tr *ngIf="this.empHA != 'n/a'">
+            <th>Home&nbsp;Address:</th>
+            <td>{{this.empHA}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <section id="loan-form-redirection">
+      <a [routerLink]="['/loan']"><button (click)="autoFillUser()">New Loan</button></a>
+    </section>
+    <section id="loan-section">
+      <p>Loan Amount: {{this.numOpenLoans}}</p>
+      <br>
+      <button [routerLink]="['/loan-info']" (click)="dataToService(this.empName, this.empId)" type="button">Check Loans</button>
+    </section>
+  </div>
+  
+  
