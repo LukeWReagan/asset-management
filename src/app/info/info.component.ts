@@ -50,13 +50,14 @@ export class InfoComponent implements OnInit {
       });
 
       this.userService.getLoans(this.empId).subscribe(info => {
-        console.log('getLoans info: ');
-        console.log(info);
+        //console.log('getLoans info: ');
+        //console.log(info);
         if (info[0].LoanID == -1) {
           this.numOpenLoans = 0;
         } else {
           this.numOpenLoans = info.length;
         }
+        console.log('open loans: ' + this.numOpenLoans);
         
       })
   }

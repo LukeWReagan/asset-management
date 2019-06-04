@@ -34,6 +34,6 @@ export class LoanDetail {
     ReturnCondition: string;
     Note: string;
     EmployeeID: bigint;
-    LoanID: bigint;
+    LoanID: number; // used to be bigint;
     ProjectID: bigint;
 }

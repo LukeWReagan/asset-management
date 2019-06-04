@@ -21,6 +21,7 @@ export class UserComponent implements OnInit {
     this.userSearchForm = this.formBuilder.group({
       user: [""]
     });
+    localStorage.clear();
   }
   findUser(formValues) {
     this.userService

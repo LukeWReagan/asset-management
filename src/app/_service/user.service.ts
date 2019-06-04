@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoanSubmit } from '../_models/LoanSubmit'
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { LoanDetail } from '../_models/LoanDetail';
 
 @Injectable({
   providedIn: 'root',
@@ -49,6 +50,6 @@ export class UserService {
     this.messageSource.next(message)
   }
   getLoans(id) { // id is the employee id
-    return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/emp/' + id);
+    return this.http.get<LoanDetail[]>('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/emp/' + id);
   }
 }
