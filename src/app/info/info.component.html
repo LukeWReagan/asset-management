@@ -3,16 +3,32 @@
     <thead>
       <tr>
         <th colspan="5">
-         <b>Information for Employee: <span style="text-align:center"><i><h3>{{this.empName}}</h3></i></span></b>
+          <b>Information for Employee: <span style="text-align:center"><i><h3>{{this.empName}}</h3></i></span></b>
         </th>
-    </tr>
+      </tr>
     </thead>
     <tbody>
       <tr>
         <th>Phone:</th>
         <td>{{this.empPhone}}</td>
       </tr>
+      <tr>
+        <th>Email:</th>
+        <td>{{this.employee.Email}}</td>
+      </tr>
+      <tr>
+        <th>Work Address:</th>
+        <td>{{this.employee.WorkAddress}}</td>
+      </tr>
     </tbody>
   </table>
+  <section id="loan-form-redirection">
+    <a [routerLink]="['/loan']"><button type="button">New Loan</button></a>
+  </section>
+  <section id="loan-section">
+    <p>Loan Amount: {{this.loanCount}}</p>
+    <br>
+    <button type="button">Check Loans</button>
+  </section>
 </div>
 

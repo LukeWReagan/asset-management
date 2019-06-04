@@ -1,0 +1,9 @@
+p{
+    display: inline-block;
+}
+section{
+    display: inline-block;
+}
+#loan-section{
+    float: right;
+}
