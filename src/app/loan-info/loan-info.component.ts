@@ -9,7 +9,7 @@ import { User } from '../_models/user';
 })
 export class LoanInfoComponent implements OnInit {
   empId:any;
-  employee:any;
+  loans:any;
   users: User[] = [];
   public userData: any;
   
@@ -19,8 +19,8 @@ export class LoanInfoComponent implements OnInit {
 
   ngOnInit() {
   this.empId = this.userService.storedId;
-  this.userService.getInfo(this.empId).subscribe(info => {
-    this.employee = info;
+  this.userService.getLoans(this.empId).subscribe(info => {
+    this.loans = info;
     console.log(info);
   });
   }
