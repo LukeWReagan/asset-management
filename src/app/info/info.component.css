@@ -1,9 +1,12 @@
-p{
+p {
     display: inline-block;
 }
-section{
+section {
     display: inline-block;
 }
 #loan-section{
     float: right;
+}
+td {
+    width: 100%;
 }

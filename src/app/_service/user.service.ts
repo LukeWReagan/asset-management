@@ -23,7 +23,7 @@ export class UserService {
       'http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employees/' + user)
   }
   
-  getInfo(userID) {
+  getInfo<Employee>(userID) {
 	  return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employee/' + userID)
   }
   setName(name) {

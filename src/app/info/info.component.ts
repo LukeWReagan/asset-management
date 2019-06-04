@@ -28,24 +28,27 @@ export class InfoComponent implements OnInit {
     } else {
       console.log('storedName not undefined:' + this.userService.storedName);
     }
-    if (this.userService.storedPhone === undefined) {
+   /* if (this.userService.storedPhone === undefined) {
       this.userService.storedPhone = localStorage.getItem('storedPhone');
       //console.log('userService.storedId undefined');
-    }
+    }*/
     if (this.userService.storedId === undefined) {
       this.userService.storedId = localStorage.getItem('storedId');
       //console.log('userService.storedId undefined');
     }
     this.empName = this.userService.storedName;
-    this.empPhone = this.userService.storedPhone;
+    //this.empPhone = this.userService.storedPhone;
     this.empId = this.userService.storedId;
     this.empWA = "n/a";
     this.empEmail = "n/a";
+    this.empPhone = "n/a";
     
 
     this.userService.getInfo(this.empId).subscribe(info => {
         this.employee = info;
         console.log(info);
+        this.empPhone = (<Employee>info).Phone;
+        if (this.empPhone == "" || this.empPhone === null) this.empPhone = "n/a";
         this.loanCount = this.employee.length;
       });
 
