@@ -16,6 +16,7 @@ export class InfoComponent implements OnInit {
   empId:any;
   empWA:any;
   empEmail:any;
+  numOpenLoans:number;
 
   constructor(private userService: UserService) { }
 
@@ -47,6 +48,17 @@ export class InfoComponent implements OnInit {
         console.log(info);
         this.loanCount = this.employee.length;
       });
+
+      this.userService.getLoans(this.empId).subscribe(info => {
+        console.log('getLoans info: ');
+        console.log(info);
+        if (info[0].LoanID == -1) {
+          this.numOpenLoans = 0;
+        } else {
+          this.numOpenLoans = info.length;
+        }
+        
+      })
   }
   dataToService(name, id) {
     this.userService.setName(name);
