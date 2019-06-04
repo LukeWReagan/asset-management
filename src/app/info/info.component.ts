@@ -13,6 +13,7 @@ export class InfoComponent implements OnInit {
   empPhone:any;
   loanCount: any;
   employee:any;
+  empId:any;
 
   constructor(private userService: UserService) { }
 
@@ -28,13 +29,19 @@ export class InfoComponent implements OnInit {
       this.userService.storedPhone = localStorage.getItem('storedPhone');
       //console.log('userService.storedId undefined');
     }
+    if (this.userService.storedId === undefined) {
+      this.userService.storedId = localStorage.getItem('storedId');
+      //console.log('userService.storedId undefined');
+    }
     this.empName = this.userService.storedName;
     this.empPhone = this.userService.storedPhone;
-    this.loanCount = this.employee.length;
+    this.empId = this.userService.storedId;
+    
 
-    this.userService.getInfo(this.empPhone).subscribe(info => {
+    this.userService.getInfo(this.empId).subscribe(info => {
         this.employee = info;
         console.log(info);
+        this.loanCount = this.employee.length;
       });
   }
   dataToService(id) {
