@@ -32,7 +32,7 @@
               <tr>
                 <td style="text-align:center" colspan="2">
                   <button *ngIf="this.resolveLoanId != loan.LoanID" (click)="this.openLoanResolve(this.loan.LoanID)">Resolve Loan</button>
-                  <app-loan-resolve *ngIf="this.resolveLoanId == loan.LoanID"></app-loan-resolve>
+                  <app-loan-resolve [loanid]="loan.LoanID" *ngIf="this.resolveLoanId == loan.LoanID"></app-loan-resolve>
                 </td>
               </tr>
               </tbody>

@@ -5,7 +5,7 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="LoanID">Loan ID</label>
-          <input type="text" formControlName="LoanID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LoanID.errors }" />
+          <input type="text" [attr.disabled]="true" formControlName="LoanID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LoanID.errors }" />
           <div *ngIf="submitted && f.LoanID.errors" class="invalid-feedback">
             <div *ngIf="f.LoanID.errors.required">Loan ID is required</div>
           </div>

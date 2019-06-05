@@ -23,7 +23,7 @@ export class LoanInfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.loans = [];
     this.empId = this.userService.storedId;
     this.empName = this.userService.storedName;
     this.resolveLoanId = -1;

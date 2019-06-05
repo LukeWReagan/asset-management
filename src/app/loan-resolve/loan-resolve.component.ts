@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../_service/user.service';
@@ -12,7 +12,7 @@ import { AlertService } from '../_service/alert.service';
 export class LoanResolveComponent implements OnInit {
 
   public loanForm: FormGroup;
-
+  @Input() loanid:any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -27,6 +27,8 @@ export class LoanResolveComponent implements OnInit {
       ReturnSupervisor: ['', []],
       ReturnCondition: ['', []]
     });
+    console.log('loanid: ' + this.loanid);
+    this.loanForm.get('LoanID').setValue(this.loanid);
   }
 
   cancelLoanResolve() {
