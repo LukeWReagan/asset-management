@@ -13,6 +13,7 @@ export class UserService {
   storedPhone: any;
   storedId: any;
   lastSeenPage:any;
+  storedLoanId:any;
   
   private messageSource = new BehaviorSubject('n/a');
   currentMessage = this.messageSource.asObservable();
@@ -42,6 +43,11 @@ export class UserService {
     localStorage.setItem('storedId', id);
     return this.storedId;
   }
+  setLoanId(id) {
+    this.storedLoanId = id;
+    return this.storedLoanId;
+  }
+
   createloan(loan: LoanSubmit){
     let options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     return this.http.post('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/submit', '{"form":' + JSON.stringify(loan) + '}', options);
