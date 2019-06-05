@@ -34,6 +34,7 @@ export class LoanInfoComponent implements OnInit {
       //console.log('loanDetailKeys:');
       //console.log(this.loanDetailKeys);
       //console.log(info);
+      this.userService.lastSeenPage = 'loan-info';
     });
   }
 

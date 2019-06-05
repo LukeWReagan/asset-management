@@ -67,8 +67,8 @@ export class InfoComponent implements OnInit {
           this.numOpenLoans = info.length;
         }
         console.log('open loans: ' + this.numOpenLoans);
-        
-      })
+      });
+      this.userService.lastSeenPage = 'info';
   }
   dataToService(name, id) {
     this.userService.setName(name);

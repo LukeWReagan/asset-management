@@ -7,28 +7,16 @@
           </th>
         </tr>
       </thead>
-     <!-- <tbody>
+      <tbody>
         <tr>
-          <th>Phone:</th>
-          <td>{{this.empPhone}}</td>
+          <th>Current&nbsp;Active&nbsp;Loans:</th>
+          <td>{{this.loans.length}}</td>
         </tr>
-        <tr>
-          <th>Email:</th>
-          <td>{{this.empEmail}}</td>
-        </tr>
-        <tr *ngIf="this.empWA != 'n/a'">
-          <th>Work&nbsp;Address:</th>
-          <td>{{this.empWA}}</td>
-        </tr>
-        <tr *ngIf="this.empHA != 'n/a'">
-            <th>Home&nbsp;Address:</th>
-            <td>{{this.empHA}}</td>
-        </tr>
-      </tbody> -->
+      </tbody>
     </table>
     <section *ngFor="let loan of this.loans">
         <div class="container" style="padding:2em;width:100%">
-            <table class="table table-bordered table-striped">
+            <table class="loanTable table table-bordered table-striped">
               <thead>
                 <tr>
                   <th colspan="5">Loan ID: {{this.loan.LoanID}}</th>
@@ -41,6 +29,9 @@
                   <td style="width:100%">{{this.loan[keys]}}</td>
                 </tr>
               </ng-container>
+              <tr>
+                <td style="text-align:center" colspan="2"><button [routerLink]="['/resolve-loan']" (click)="dataToService(this.empName, this.empId)">Resolve Loan</button></td>
+              </tr>
               </tbody>
             </table>
             </div>

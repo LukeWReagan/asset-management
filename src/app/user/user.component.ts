@@ -18,10 +18,12 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.userSearchForm = this.formBuilder.group({
       user: [""]
     });
     localStorage.clear();
+    this.userService.lastSeenPage = '';
   }
   findUser(formValues) {
     this.userService

@@ -12,6 +12,7 @@ export class UserService {
   storedName: any;
   storedPhone: any;
   storedId: any;
+  lastSeenPage:any;
   
   private messageSource = new BehaviorSubject('n/a');
   currentMessage = this.messageSource.asObservable();
@@ -49,7 +50,10 @@ export class UserService {
   changeMessage(message: string) {
     this.messageSource.next(message)
   }
-  getLoans(id) { // id is the employee id
+  getLoans(id) { // id is the employee id, gets all active loans for that employee
     return this.http.get<LoanDetail[]>('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/emp/' + id);
+  }
+  getLoan(id) { // id is the loan id
+    return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/' + id);
   }
 }

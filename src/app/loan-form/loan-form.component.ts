@@ -44,35 +44,35 @@ export class LoanFormComponent implements OnInit {
       Email: ['', []]
     });
     this.userService.currentMessage.pipe(filter((s:string) => s!="n/a")).subscribe(message => {
-      console.log('sub called, message: ' + message);
+      //console.log('sub called, message: ' + message);
       if (message == 'n/a') return;
 
-      console.log('made it thru');
+      //console.log('made it thru');
       this.autoFill = JSON.parse(message);
       //console.log('autofill next line:');
       //console.log(this.autoFill);
       if (this.autoFill.autofill) {
-        console.log('autofilling...');
+        //console.log('autofilling...');
         let info = this.autoFill.info;
         if (info.FirstName != null)
           this.loanForm.get('FirstName').setValue(info.FirstName);
-        console.log('fn ' + info.FirstName);
+        //console.log('fn ' + info.FirstName);
         if (info.LastName != null)
           this.loanForm.get('LastName').setValue(info.LastName);
-        console.log('ln ' + info.LastName);
+        //console.log('ln ' + info.LastName);
         if (info.Phone != null)
           this.loanForm.get('Phone').setValue(info.Phone);
-        console.log('ph ' + info.Phone);
+        //console.log('ph ' + info.Phone);
         if (info.Email != null)
           this.loanForm.get('Email').setValue(info.Email);
-        console.log('email ' + info.Email);
+        //console.log('email ' + info.Email);
         if (info.WorkAddress != null)
           this.loanForm.get('WorkAddress').setValue(info.WorkAddress);
-        console.log('workad');
+        //console.log('workad');
         if (info.HomeAddress != null)
           this.loanForm.get('HomeAddress').setValue(info.HomeAddress);
-        console.log('homead');
-        console.log('done');
+        //console.log('homead');
+        //console.log('done');
 
       //  this.userService.changeMessage('n/a');
       }
@@ -92,8 +92,8 @@ export class LoanFormComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.alertService.success('loan submission successful', true);
-                this.router.navigate(['/']);
+                this.alertService.success('Loan Submission Successful', true);
+                this.router.navigate(['/info']);
             },
             error => {
                 this.alertService.error(error);
