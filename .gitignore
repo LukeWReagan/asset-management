@@ -50,3 +50,4 @@ Thumbs.db
 # chris
 ng
 package-lock.json
+/src/app/.unused
