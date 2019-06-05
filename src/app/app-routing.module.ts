@@ -11,11 +11,11 @@ const routes: Routes = [
   { path: 'info', component: InfoComponent },
   { path: 'loan', component: LoanFormComponent },
   { path: 'loan-info', component: LoanInfoComponent },
-  { path: 'loan-resolve', component: LoanResolveComponent }
+  { path: 'loan-resolve', component: LoanResolveComponent, runGuardsAndResolvers: 'always' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

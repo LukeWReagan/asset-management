@@ -1,7 +1,7 @@
 <div class="container" style="padding-top:2em">
   <h2>Loan Return Form</h2>
   <div class="row">
-    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loanForm" (ngSubmit)="this.onSubmit()">
     <div class="col-md-6">
         <div class="form-group">
           <label for="LoanID">Loan ID</label>

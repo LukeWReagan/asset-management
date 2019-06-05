@@ -4,6 +4,7 @@ import { LoanSubmit } from '../_models/LoanSubmit'
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { LoanDetail } from '../_models/LoanDetail';
+import { LoanResolve } from '../_models/LoanResolve';
 
 @Injectable({
   providedIn: 'root',
@@ -50,9 +51,13 @@ export class UserService {
     this.loanIdSource.next(id);
   }
 
-  createloan(loan: LoanSubmit){
+  createloan(loan: LoanSubmit) {
     let options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     return this.http.post('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/submit', '{"form":' + JSON.stringify(loan) + '}', options);
+  }
+  resolveloan(loan: LoanResolve) {
+    let options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    return this.http.post('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/resolve', '{"form":' + JSON.stringify(loan) + '}', options);
   }
 
   changeMessage(message: string) {

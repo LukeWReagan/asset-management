@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../_service/user.service';
 import { AlertService } from '../_service/alert.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-loan-resolve',
@@ -12,6 +13,8 @@ import { AlertService } from '../_service/alert.service';
 export class LoanResolveComponent implements OnInit {
 
   public loanForm: FormGroup;
+  loading:any;
+
   @Input() loanid:any;
   constructor(
     private formBuilder: FormBuilder,
@@ -21,6 +24,7 @@ export class LoanResolveComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loading = false;
     this.loanForm = this.formBuilder.group({
       LoanID: ['', []],
       ReturnDate: ['', []],
@@ -33,5 +37,26 @@ export class LoanResolveComponent implements OnInit {
 
   cancelLoanResolve() {
     this.userService.setLoanId(-1);
+  }
+
+  onSubmit() {
+    console.log('submitting!');
+    // stop here if form is invalid
+    if (this.loanForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.userService.resolveloan(this.loanForm.value)
+    .pipe(first())
+    .subscribe(
+        data => {
+            this.alertService.success('Loan Resolve Successful', true);
+            this.router.navigate(['/loan-info']);
+        },
+        error => {
+            this.alertService.error(error);
+            this.loading = false;
+        });
   }
 }

@@ -99,6 +99,6 @@ export class LoanFormComponent implements OnInit {
                 this.alertService.error(error);
                 this.loading = false;
             });
-}
+  } 
 
 }
