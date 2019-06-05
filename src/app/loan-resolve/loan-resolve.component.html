@@ -1,0 +1,42 @@
+<div class="container" style="padding-top:2em">
+  <h2>Loan Return Form</h2>
+  <div class="row">
+    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="LoanID">Loan ID</label>
+          <input type="text" formControlName="LoanID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LoanID.errors }" />
+          <div *ngIf="submitted && f.LoanID.errors" class="invalid-feedback">
+            <div *ngIf="f.LoanID.errors.required">Loan ID is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ReturnDate">Return Date</label>
+          <input type="text" formControlName="ReturnDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ReturnDate.errors }" />
+          <div *ngIf="submitted && f.ReturnDate.errors" class="invalid-feedback">
+            <div *ngIf="f.ReturnDate.errors.required">Return Date is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ReturnSupervisor">Return Supervisor</label>
+          <input type="text" formControlName="ReturnSupervisor" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ReturnSupervisor.errors }" />
+          <div *ngIf="submitted && f.ReturnSupervisor.errors" class="invalid-feedback">
+            <div *ngIf="f.ReturnSupervisor.errors.required">Return Supervisor is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ReturnCondition">Return Condition</label>
+          <input type="text" formControlName="ReturnCondition" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ReturnCondition.errors }" />
+          <div *ngIf="submitted && f.ReturnCondition.errors" class="invalid-feedback">
+            <div *ngIf="f.ReturnCondition.errors.required">Return Condition is required</div>
+          </div>
+        </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Submit Loan Return</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/']" class="btn btn-link">Cancel</a>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
