@@ -28,4 +28,8 @@ export class LoanResolveComponent implements OnInit {
       ReturnCondition: ['', []]
     });
   }
+
+  cancelLoanResolve() {
+    this.userService.setLoanId(-1);
+  }
 }

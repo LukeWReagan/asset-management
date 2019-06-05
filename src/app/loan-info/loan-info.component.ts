@@ -13,6 +13,7 @@ export class LoanInfoComponent implements OnInit {
   empId:any;
   empName:any;
   loans:any;
+  resolveLoanId:any;
   users: User[] = [];
 
   public userData: any;
@@ -25,6 +26,11 @@ export class LoanInfoComponent implements OnInit {
 
     this.empId = this.userService.storedId;
     this.empName = this.userService.storedName;
+    this.resolveLoanId = -1;
+     this.userService.currentLoanId.subscribe(newLoanId => {
+       if (newLoanId === null || newLoanId === undefined) return;
+       this.resolveLoanId = newLoanId;
+     });
 
     this.userService.getLoans(this.empId).subscribe(info => {
       this.loans = info;
@@ -75,4 +81,11 @@ export class LoanInfoComponent implements OnInit {
     if (key == "LoanID" || key == "EmployeeID" || key == "ProjectID") return false;
     return true;
   }
+  setLoanId(id) {
+    return this.userService.setLoanId(id);
+  }
+  openLoanResolve(id) {
+    this.userService.setLoanId(id);
+  }
+  
 }

@@ -15,6 +15,8 @@ export class UserService {
   lastSeenPage:any;
   storedLoanId:any;
   
+  private loanIdSource = new BehaviorSubject(-1);
+  currentLoanId = this.loanIdSource.asObservable();
   private messageSource = new BehaviorSubject('n/a');
   currentMessage = this.messageSource.asObservable();
 
@@ -45,7 +47,7 @@ export class UserService {
   }
   setLoanId(id) {
     this.storedLoanId = id;
-    return this.storedLoanId;
+    this.loanIdSource.next(id);
   }
 
   createloan(loan: LoanSubmit){
