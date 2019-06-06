@@ -43,7 +43,7 @@ export class LoanInfoComponent implements OnInit {
     this.empId = this.userService.storedId;
     this.empName = this.userService.storedName;
     this.resolveLoanId = -1;
-    console.log('hi');
+    //console.log('hi');
      this.userService.currentLoanId.subscribe(newLoanId => {
        if (newLoanId === null || newLoanId === undefined) return;
        this.resolveLoanId = newLoanId;

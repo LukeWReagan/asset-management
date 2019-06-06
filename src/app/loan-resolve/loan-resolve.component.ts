@@ -31,7 +31,7 @@ export class LoanResolveComponent implements OnInit {
       ReturnSupervisor: ['', []],
       ReturnCondition: ['', []]
     });
-    console.log('loanid: ' + this.loanid);
+    //console.log('loanid: ' + this.loanid);
     this.loanForm.get('LoanID').setValue(this.loanid);
   }
 
@@ -40,7 +40,7 @@ export class LoanResolveComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submitting!');
+    //console.log('submitting!');
     // stop here if form is invalid
     if (this.loanForm.invalid) {
       return;
