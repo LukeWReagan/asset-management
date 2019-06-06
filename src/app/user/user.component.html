@@ -5,6 +5,7 @@
       <form [formGroup]="userSearchForm" (ngSubmit)="findUser(userSearchForm.value)">
         <div class="form-group">
           <input
+            (input)="textChangeEvt(userSearchForm.value)"
             class="form-control"
             type="text"
             id="user"
@@ -31,9 +32,11 @@
         </thead>
         <tbody>
 	        <tr *ngFor="let name of userData">
-		        <td style="width:40%">{{name.FirstName + " " + name.LastName}}</td>
-		        <td style="width:40%">{{name.EmployeeID}}</td>
-            <td><button [routerLink]="['/info']" (click)="dataToService(name.FirstName + ' ' + name.LastName, name.EmployeeID)">More Info</button></td>
+            
+              <td *ngIf="name.EmployeeID != -1" style="width:40%">{{name.FirstName + " " + name.LastName}}</td>
+              <td *ngIf="name.EmployeeID != -1" style="width:40%">{{name.EmployeeID}}</td>
+              <td *ngIf="name.EmployeeID != -1"><button [routerLink]="['/info']" (click)="dataToService(name.FirstName + ' ' + name.LastName, name.EmployeeID)">More Info</button></td>
+            <td colspan="2" *ngIf="name.EmployeeID == -1">No Users Found</td>
           </tr>
         </tbody>
 	      </table>
