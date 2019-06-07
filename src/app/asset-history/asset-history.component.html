@@ -1,0 +1,39 @@
+<div class="container" style="padding:3em">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th colspan="5">
+            <b>Asset History <span style="float:right;text-align:right;font-size:x-small">Asset ID: {{this.assetId}}</span></b>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Loan&nbsp;History&nbsp;Length:</th>
+          <td>{{this.loans.length}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <section *ngFor="let loan of this.loans">
+        <div class="container" style="padding:2em;width:100%">
+            <table class="loanTable table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th colspan="5">Loan ID: {{this.loan.LoanID}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let keys of this.filterKeys(this.getKeys(loan))">
+                <tr *ngIf="this.loan[keys]">
+                  <th>{{ this.displayKey(keys) }}:</th>
+                  <td style="width:100%">{{this.loan[keys]}}</td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+     <!-- <app-loan-info-display [theLoan]="loan"></app-loan-info-display>-->
+    </section>
+  </div>
+  
+  
