@@ -37,7 +37,7 @@ export class AssetHistoryComponent implements OnInit {
 
   init_function() {
     this.loans = [];
-    this.assetId = this.userService.storedId;
+    this.assetId = this.userService.assetId;
     if (this.assetId === undefined || this.assetId === null) {
       this.assetId = localStorage.getItem('assetID');
     }
@@ -51,9 +51,9 @@ export class AssetHistoryComponent implements OnInit {
       }
       //console.log('loanDetailKeys:');
       //console.log(this.loanDetailKeys);
-      //console.log(info);
-      this.userService.lastSeenPage = 'asset-history';
+      console.log('asset hist:', info);
     });
+    this.userService.lastSeenPage = 'asset-history';
   }
 
   displayWrapper(loan) {
@@ -90,8 +90,13 @@ export class AssetHistoryComponent implements OnInit {
   }
   goodKey(key:string) {
     if (key == null || key == undefined) return false;
-    if (key == "LoanID" || key == "EmployeeID" || key == "ProjectID") return false;
+    if (key == "LoanID" || key == "ProjectID") return false;
     return true;
+  }
+
+  showEmployee(name, id) {
+    this.userService.setId(id);
+    this.userService.setName(name);
   }
 
 }

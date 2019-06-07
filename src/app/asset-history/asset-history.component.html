@@ -10,7 +10,7 @@
       <tbody>
         <tr>
           <th>Loan&nbsp;History&nbsp;Length:</th>
-          <td>{{this.loans.length}}</td>
+          <td style="width:100%">{{this.loans.length}}</td>
         </tr>
       </tbody>
     </table>
@@ -26,7 +26,10 @@
                 <ng-container *ngFor="let keys of this.filterKeys(this.getKeys(loan))">
                 <tr *ngIf="this.loan[keys]">
                   <th>{{ this.displayKey(keys) }}:</th>
-                  <td style="width:100%">{{this.loan[keys]}}</td>
+                  <td style="width:100%">
+                    <a *ngIf="keys == 'EmployeeID'; else showNormal" [routerLink]="['/info']"><i (click)="this.showEmployee('loading...', this.loan[keys])"> {{this.loan[keys]}} </i></a>
+                    <ng-template #showNormal> {{this.loan[keys]}} </ng-template>
+                  </td>
                 </tr>
               </ng-container>
               </tbody>

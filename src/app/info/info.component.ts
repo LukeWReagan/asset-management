@@ -12,7 +12,7 @@ export class InfoComponent implements OnInit {
   empName:any;
   empPhone:any;
   loanCount: any;
-  employee:any;
+  employee:Employee;
   empId:any;
   empWA:any;
   empEmail:any;
@@ -47,15 +47,16 @@ export class InfoComponent implements OnInit {
     
 
     this.userService.getInfo(this.empId).subscribe(info => {
-        this.employee = info;
+        this.employee = (<Employee>info);
         console.log(info);
-        this.empPhone = (<Employee>info).Phone;
-        this.empWA = (<Employee>info).WorkAddress;
-        this.empHA = (<Employee>info).HomeAddress;
+        this.empPhone = this.employee.Phone;
+        this.empWA = this.employee.WorkAddress;
+        this.empHA = this.employee.HomeAddress;
+        this.empName = this.employee.FirstName + " " + this.employee.LastName;
         if (this.empPhone == "" || this.empPhone === null) this.empPhone = "n/a";
         if (this.empWA == "" || this.empWA === null) this.empWA = "n/a";
         if (this.empHA == "" || this.empHA === null) this.empHA = "n/a";
-        this.loanCount = this.employee.length;
+        //this.loanCount = this.employee.length;
       });
 
       this.userService.getLoans(this.empId).subscribe(info => {

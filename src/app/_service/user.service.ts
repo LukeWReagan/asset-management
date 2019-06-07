@@ -15,6 +15,7 @@ export class UserService {
   storedId: any;
   lastSeenPage:any;
   storedLoanId:any;
+  assetId:any;
   
   private loanIdSource = new BehaviorSubject(-1);
   currentLoanId = this.loanIdSource.asObservable();

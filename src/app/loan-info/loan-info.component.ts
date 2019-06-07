@@ -106,9 +106,9 @@ export class LoanInfoComponent implements OnInit {
   }
 
   viewAssetHistory(assetNum) {
-    this.userService.storedId = assetNum;
+    this.userService.assetId = assetNum;
     localStorage.setItem('assetID', assetNum);
-    console.log('set storedId and localStorage assetID  to ' + assetNum);
+    console.log('set assetId and localStorage assetID  to ' + assetNum);
   }
   
 }
