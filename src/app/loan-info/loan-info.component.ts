@@ -104,5 +104,11 @@ export class LoanInfoComponent implements OnInit {
   openLoanResolve(id) {
     this.userService.setLoanId(id);
   }
+
+  viewAssetHistory(assetNum) {
+    this.userService.storedId = assetNum;
+    localStorage.setItem('assetID', assetNum);
+    console.log('set storedId and localStorage assetID  to ' + assetNum);
+  }
   
 }

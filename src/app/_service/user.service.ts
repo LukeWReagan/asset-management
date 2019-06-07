@@ -69,4 +69,7 @@ export class UserService {
   getLoan(id) { // id is the loan id
     return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/' + id);
   }
+  getAssetHistory(assetNum) {
+    return this.http.get<LoanDetail[]>('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/asset/' + assetNum);
+  }
 }

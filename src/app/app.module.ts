@@ -15,6 +15,7 @@ import { LoanFormComponent } from './loan-form/loan-form.component';
 import { AlertComponent } from './_directive/alert.component';
 import { LoanInfoComponent } from './loan-info/loan-info.component';
 import { LoanResolveComponent } from './loan-resolve/loan-resolve.component';
+import { AssetHistoryComponent } from './asset-history/asset-history.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoanResolveComponent } from './loan-resolve/loan-resolve.component';
     LoanFormComponent,
     AlertComponent,
     LoanInfoComponent,
-    LoanResolveComponent
+    LoanResolveComponent,
+    AssetHistoryComponent
   ],
   imports: [
     BrowserModule,

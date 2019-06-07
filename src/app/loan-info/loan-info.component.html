@@ -24,9 +24,12 @@
               </thead>
               <tbody>
                 <ng-container *ngFor="let keys of this.filterKeys(this.getKeys(loan))">
-                <tr *ngIf="this.loan[keys] != null && this.loan[keys] != ''">
+                <tr *ngIf="this.loan[keys]">
                   <th>{{ this.displayKey(keys) }}:</th>
-                  <td style="width:100%">{{this.loan[keys]}}</td>
+                  <td style="width:100%">
+                    <a *ngIf="keys == 'AssetNumber'; else showNormal" [routerLink]="['/asset-history']"><i (click)="this.viewAssetHistory(this.loan[keys])"> {{this.loan[keys]}} </i></a>
+                    <ng-template #showNormal> {{this.loan[keys]}} </ng-template>
+                  </td>
                 </tr>
               </ng-container>
               <tr>
