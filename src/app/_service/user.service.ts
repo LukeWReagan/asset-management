@@ -25,12 +25,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
   
   getUser(user){
-    return this.http.get(
-      'http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employees/' + user)
+    return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employees/' + encodeURIComponent(user));
   }
   
   getInfo<Employee>(userID) {
-	  return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employee/' + userID)
+	  return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/emp/employee/' + encodeURIComponent(userID));
   }
   setName(name) {
     this.storedName = name;
@@ -65,12 +64,13 @@ export class UserService {
     this.messageSource.next(message)
   }
   getLoans(id) { // id is the employee id, gets all active loans for that employee
-    return this.http.get<LoanDetail[]>('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/emp/' + id);
+    return this.http.get<LoanDetail[]>('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/emp/' + encodeURIComponent(id));
   }
   getLoan(id) { // id is the loan id
-    return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/' + id);
+    return this.http.get('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loan/' + encodeURIComponent(id));
   }
   getAssetHistory(assetNum) {
-    return this.http.get<LoanDetail[]>('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/asset/' + assetNum);
+    //console.log('encoded assetNum:', encodeURI(assetNum));
+    return this.http.get<LoanDetail[]>('http://assetmanagementservice.cloudapp.net/AssetServ.svc/lns/loans/asset/' + encodeURIComponent(assetNum));
   }
 }
